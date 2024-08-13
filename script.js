@@ -49,7 +49,7 @@ const imageIndexes = {
     gummies: ['./images/illustration/gummies.png'],
 
     signs: ['./images/photography/signs/signs-1.png', './images/photography/signs/signs-2.png', './images/photography/signs/signs-3.png'],
-    ice: ['./images/photography/ice1.png', './images/photography/ice2.png'],
+    ice: ['./images/photography/ice/ice-1.png', './images/photography/ice/ice-2.png'],
     house: ['./images/photography/house.png'],
     girl: ['./images/photography/girl.png'],
   };
@@ -69,7 +69,7 @@ const imageIndexes = {
       imageIndexes[imageId] = (imageIndexes[imageId] + 1) % imageSets[imageId].length;
       imgElement.src = imageSets[imageId][imageIndexes[imageId]];
       imgElement.classList.remove('fade-out');
-    }, 300); 
+    }, 0); 
   }
   
   function previousImage(imageId) {
@@ -79,7 +79,7 @@ const imageIndexes = {
       imageIndexes[imageId] = (imageIndexes[imageId] - 1 + imageSets[imageId].length) % imageSets[imageId].length;
       imgElement.src = imageSets[imageId][imageIndexes[imageId]];
       imgElement.classList.remove('fade-out');
-    }, 300); 
+    }, 0); 
   }
   
   
@@ -163,6 +163,16 @@ smile.addEventListener('mouseenter', function() {
   document.getElementById('all-socials').style.display = 'flex';
 }); 
 
+smile.addEventListener('touchstart', function() {
+  const allSocials = document.getElementById('all-socials');
+
+    if (allSocials.style.display === 'flex') {
+        allSocials.style.display = 'none';
+    } else {
+        allSocials.style.display = 'flex';
+    }
+}); 
+
 let socialsWrapper = document.getElementById('all-socials-wrapper');
 
 socialsWrapper.addEventListener('mouseleave', function() {
@@ -170,8 +180,21 @@ socialsWrapper.addEventListener('mouseleave', function() {
 });
 
 
+let imageContainers = document.getElementsByClassName('image-container');
 
+// Loop through each element in the HTMLCollection
+for (let i = 0; i < imageContainers.length; i++) {
+    imageContainers[i].addEventListener('touchstart', function() {
+        let overlayText = this.getElementsByClassName('overlay-text')[0];  // Get the overlay-text within this image container
+        this.classList.toggle('clicked'); // Toggle the class on the image container
+        
+        if (overlayText) {  // Check if overlayText exists
+            overlayText.classList.toggle('clicked'); // Toggle the class on the overlay text
+        }
 
+        console.log('touched it');
+    });
+}
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -219,3 +242,81 @@ window.addEventListener('scroll', function() {
 
 
 
+document.addEventListener("DOMContentLoaded", function() {
+  const image = document.querySelector("#megalines img");
+
+  // Function to update image source based on screen width
+  function updateImageSource() {
+      if (window.matchMedia("(max-width: 768px)").matches) {
+          image.src = "icons/megalines-small.svg"; // New image source for smaller screens
+      } else {
+          image.src = "icons/megalines.svg"; // Original image source for larger screens
+      }
+  }
+
+  // Initial check
+  updateImageSource();
+
+  // Add event listener to update on window resize
+  window.addEventListener("resize", updateImageSource);
+});
+
+
+
+
+
+function advanceImages() {
+  //Advance every image
+  //To be called by timer (set with setInterval)
+  nextImage("voof")
+  nextImage("bridge");
+  nextImage("avatar");
+  nextImage("landscape");
+  nextImage("rewire");
+  nextImage("antagonico");
+  nextImage("conflict");
+  nextImage("errar");
+  nextImage("info");
+  nextImage("rupture");
+  nextImage("squares");
+  nextImage("montanha");
+  nextImage("over");
+  nextImage("yeti");
+  nextImage("mage");
+  nextImage("during");
+  nextImage("sketch");
+  nextImage("gummies");
+  nextImage("signs");
+  nextImage("ice");
+  nextImage("house");
+  nextImage("girl");
+}
+
+
+
+// Variable to store the interval ID
+let intervalID = null;
+
+function checkScreenSizeAndRun() {
+    // Check if the screen width is 768px or less
+    if (window.matchMedia("(max-width: 768px)").matches) {
+        if (!intervalID) {
+            console.log("Screen width <= 768px, starting interval");
+            // Run the advanceImages function every 3.5 seconds
+            intervalID = setInterval(advanceImages, 3500); //Call auxiliar function to advance every image
+        }
+    } else {
+        if (intervalID) {
+            console.log("Screen width > 768px, clearing interval");
+            // Clear the interval if the screen size is greater than 768px
+            clearInterval(intervalID);
+            intervalID = null;
+        }
+    }
+}
+
+// Initial check on page load
+checkScreenSizeAndRun();
+
+// Listen for changes in screen size
+window.addEventListener('resize', checkScreenSizeAndRun);

@@ -104,6 +104,7 @@ header {
   margin-bottom: 20px;
 }
 #smile:hover,
+#smile:active,
 #smile.hovered {
   background-image: url(./icons/pink/smile-pink.svg);
 }
@@ -115,7 +116,8 @@ header {
   background-position: center;
   margin-bottom: 10px;
 }
-#instagram:hover {
+#instagram:hover,
+#instagram:active {
   background-image: url(./icons/pink/insta-pink.svg);
 }
 #unsplash {
@@ -126,7 +128,8 @@ header {
   background-position: center;
   margin-bottom: 10px;
 }
-#unsplash:hover {
+#unsplash:hover,
+#unsplash:active {
   background-image: url(./icons/pink/unsplash-pink.svg);
 }
 #email {
@@ -136,7 +139,8 @@ header {
   background-repeat: no-repeat;
   background-position: center;
 }
-#email:hover {
+#email:hover,
+#email:active {
   background-image: url(./icons/pink/email-pink.svg);
 }
 
@@ -216,6 +220,7 @@ h1 {
   position: relative;
   z-index: 30;
   line-height: 150px;
+  text-align: center;
 }
 
 h2 {
@@ -227,36 +232,28 @@ h2 {
   margin-top: 50px;
 }
 
-.container h2:hover{
+.container h2:hover,
+.container h2:active {
   color: var(--pink);
 }
 
 h3,
 .fullheight a,
 .overlay-Title {
-  font-size: 32px;
+  font-size: 36px;
   text-align: center;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: var(--black);
-}
-
-.overlay-container{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
 }
 
 .overlay-Title {
-  -webkit-text-stroke-color: var(--white);
   text-align: left;
 }
 
-.fullheight a:hover {
+.fullheight a:hover,
+.fullheight a:active {
   color: var(--pink);
-  -webkit-text-stroke-color: var(--pink);
 }
 
-a {
+a { /*links */
   text-decoration: none;
 }
 
@@ -265,11 +262,19 @@ a {
   margin-bottom: 7px;
 }
 
+.overlay-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 !important;
+}
+
 .container a {
   color: var(--white);
 }
 
-h1:hover {
+h1:hover,
+h1:active {
   color: var(--pink)
 }
 
@@ -286,20 +291,16 @@ h1:hover {
   font-size: 20px;
   color: var(--grey);
   margin-left: 20px;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: var(--grey);
 }
 
 footer h3 {
   font-size: 24px;
   margin-top: 20px;
   margin-bottom: 30px;
-  -webkit-text-stroke-width: 0px;
 }
 
 .scroller a:hover {
   color: var(--pink) !important;
-  -webkit-text-stroke-color: var(--pink) !important;
 }
 
 .overlay-link a {
@@ -431,7 +432,7 @@ footer h3 {
 
 img {
   opacity: 1;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 }
 
 .fade-out {
@@ -465,13 +466,12 @@ img {
   color: var(--white);
   font-size: 20px;
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   z-index: 2;
 }
 
 .selected {
   color: var(--black) !important;
-  -webkit-text-stroke-color: var(--black) !important;
 }
 
 .overlay-Title,
@@ -495,22 +495,174 @@ img {
   z-index: 1;
 }
 
-.image-container:hover::after {
+.image-container:hover::after,
+.image-container.clicked::after {
+  opacity: 1;
+  background: linear-gradient(to right, var(--black) 20%, transparent);
+}
+
+.image-container:hover .overlay-text, 
+.overlay-text.clicked {
   opacity: 1;
 }
 
-.image-container:hover .overlay-text {
-  opacity: 1;
-}
-
-.change-color-text:hover {
+.change-color-text:hover,
+.change-color-text:active {
   color: var(--pink);
 }
 
-.change-color-text:hover::after {
+.change-color-text:hover::after,
+.change-color-text:active::after {
   background: linear-gradient(to right, var(--pink) 20%, transparent);
 }
 
 .container img {
   border-radius: 5px;
+}
+
+
+
+
+/* SMARTPHONE CASE */
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 96px;
+    line-height: 96px;
+  }
+
+  h2,
+  .fullheight a {
+    font-size: 42px;
+    line-height: 42px;
+  }
+
+  .fullheight {
+    max-width: 300px;
+  }
+
+  h3,
+  .overlay-body,
+  .overlay-link a {
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  .overlay-Title {
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .overlay-Date,
+  .overlay-group {
+    font-size: 11px;
+    line-height: 11px;
+  }
+
+  .overlay-text div {
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+  }
+
+  .fullheight h3 {
+    margin-top: 20px;
+  }
+
+  #smile {
+    height: 50px;
+    width: 50px;
+    background-size: 50px;
+  }
+
+  #instagram,
+  #unsplash,
+  #email {
+    height: 40px;
+    width: 40px;
+    background-size: 40px;
+  }
+
+  #all-socials-wrapper {
+    margin-top: 10px;
+    margin-right: 15px;
+  }
+
+  #scroller-positioner,
+  button {
+    display:none;
+  }
+
+  #menu {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .image-container {
+    width: 300px;
+    height: 168.75px;
+    border-width: 3px;
+  }
+
+  .container {
+    height: 220px;
+  }
+
+  .divider div {
+    height: 3px;
+    width: 200px;
+  }
+
+  #hatching {
+    height: calc(200dvh + 2380px);
+    overflow-y:hidden;
+  }
+
+  #megalines {
+    height: calc(200dvh);
+    overflow-y:hidden;
+  }
+
+  /* HATCHINGS */
+  #lines1 {
+    transform: translate(0px, -600px);
+  }
+  
+  #lines2 {
+    transform: translate(-350px, -850px);
+  }
+  
+  #lines3 {
+    transform: translate(200px, -1300px);
+  }
+  
+  #lines4 {
+    transform: translate(30px, -500px);
+  }
+  
+  #lines5 {
+    transform: translate(280px, -550px);
+  }
+  
+  #lines6 {
+    transform: translate(-800px, -1000px);
+  }
+  
+  #lines7 {
+    transform: translate(180px, -1000px);
+  }
+  
+  #lines8 {
+    transform: translate(80px, -800px);
+  }
+  
+  #lines9 {
+    transform: translate(-280px, -900px);
+  }
+  
+  #lines10 {
+    transform: translate(90px, -1000px);
+  }
+  
+  #lines10 {
+    transform: translate(80px, -2000px);
+  }
 }
