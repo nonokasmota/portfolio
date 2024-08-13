@@ -535,27 +535,38 @@ img {
 /* SMARTPHONE CASE */
 @media only screen and (max-width: 768px) {
   h1 {
-    font-size: 96px;
-    line-height: 96px;
+    font-size: 110px;
+    line-height: 100px;
   }
 
   h2,
   .fullheight a {
-    font-size: 42px;
-    line-height: 42px;
+    font-size: 46px;
+    line-height: 46px;
   }
 
   .fullheight {
     max-width: 300px;
   }
 
-  h3,
+  h3 {
+    font-size: 20px;
+    line-height: 22px;
+  }
+
   .overlay-body,
   .overlay-link a,
   p {
     font-size: 14px;
     line-height: 14px;
   }
+
+#menu a {
+  font-size: 42px;
+  line-height: 45px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
 
   .overlay-link {
     flex-direction: column;
@@ -585,7 +596,7 @@ img {
   }
 
   .fullheight h3 {
-    margin-top: 20px;
+    margin-top: 10px;
   }
 
   .overlay-Title, .overlay-Date, .overlay-body, .overlay-link, .overlay-group {
@@ -694,5 +705,17 @@ img {
   footer {
     margin-top: 50px;
     border-top-width: 3px;
+  }
+}
+
+
+@media only screen and (min-width: 1800px) {
+
+  #lines1 {
+    transform: translate(-700px, -500px);
+  }
+  
+  #lines2 {
+    transform: translate(900px, -650px);
   }
 }
