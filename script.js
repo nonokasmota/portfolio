@@ -163,15 +163,15 @@ smile.addEventListener('mouseenter', function() {
   document.getElementById('all-socials').style.display = 'flex';
 }); 
 
-smile.addEventListener('click', function() {
-  const allSocials = document.getElementById('all-socials');
+// smile.addEventListener('click', function() {
+//   const allSocials = document.getElementById('all-socials');
 
-    if (allSocials.style.display === 'flex') {
-        allSocials.style.display = 'none';
-    } else {
-        allSocials.style.display = 'flex';
-    }
-}); 
+//     if (allSocials.style.display === 'flex') {
+//         allSocials.style.display = 'none';
+//     } else {
+//         allSocials.style.display = 'flex';
+//     }
+// }); 
 
 let socialsWrapper = document.getElementById('all-socials-wrapper');
 
@@ -182,27 +182,27 @@ socialsWrapper.addEventListener('mouseleave', function() {
 
 let imageContainers = document.getElementsByClassName('image-container');
 
-// Loop through each element in the HTMLCollection
-for (let i = 0; i < imageContainers.length; i++) {
-  imageContainers[i].addEventListener('click', function() {
-      let overlayText = this.getElementsByClassName('overlay-text')[0];  // Get the overlay-text within this image container
+// // Loop through each element in the HTMLCollection
+// for (let i = 0; i < imageContainers.length; i++) {
+//   imageContainers[i].addEventListener('click', function() {
+//       let overlayText = this.getElementsByClassName('overlay-text')[0];  // Get the overlay-text within this image container
       
-      // Check if the image container has the 'clicked' class
-      if (this.classList.contains('clicked')) {
-          this.classList.remove('clicked');  // Remove the 'clicked' class from the image container
-          if (overlayText) {  // Check if overlayText exists
-              overlayText.classList.remove('clicked');  // Remove the 'clicked' class from the overlay text
-          }
-      } else {
-          this.classList.add('clicked');  // Add the 'clicked' class to the image container
-          if (overlayText) {  // Check if overlayText exists
-              overlayText.classList.add('clicked');  // Add the 'clicked' class to the overlay text
-          }
-      }
+//       // Check if the image container has the 'clicked' class
+//       if (this.classList.contains('clicked')) {
+//           this.classList.remove('clicked');  // Remove the 'clicked' class from the image container
+//           if (overlayText) {  // Check if overlayText exists
+//               overlayText.classList.remove('clicked');  // Remove the 'clicked' class from the overlay text
+//           }
+//       } else {
+//           this.classList.add('clicked');  // Add the 'clicked' class to the image container
+//           if (overlayText) {  // Check if overlayText exists
+//               overlayText.classList.add('clicked');  // Add the 'clicked' class to the overlay text
+//           }
+//       }
 
-      console.log('touched it');
-  });
-}
+//       console.log('touched it');
+//   });
+// }
 
 
 document.addEventListener('DOMContentLoaded', () => {
