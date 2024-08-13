@@ -184,16 +184,24 @@ let imageContainers = document.getElementsByClassName('image-container');
 
 // Loop through each element in the HTMLCollection
 for (let i = 0; i < imageContainers.length; i++) {
-    imageContainers[i].addEventListener('click', function() {
-        let overlayText = this.getElementsByClassName('overlay-text')[0];  // Get the overlay-text within this image container
-        this.classList.toggle('clicked'); // Toggle the class on the image container
-        
-        if (overlayText) {  // Check if overlayText exists
-            overlayText.classList.toggle('clicked'); // Toggle the class on the overlay text
-        }
+  imageContainers[i].addEventListener('click', function() {
+      let overlayText = this.getElementsByClassName('overlay-text')[0];  // Get the overlay-text within this image container
+      
+      // Check if the image container has the 'clicked' class
+      if (this.classList.contains('clicked')) {
+          this.classList.remove('clicked');  // Remove the 'clicked' class from the image container
+          if (overlayText) {  // Check if overlayText exists
+              overlayText.classList.remove('clicked');  // Remove the 'clicked' class from the overlay text
+          }
+      } else {
+          this.classList.add('clicked');  // Add the 'clicked' class to the image container
+          if (overlayText) {  // Check if overlayText exists
+              overlayText.classList.add('clicked');  // Add the 'clicked' class to the overlay text
+          }
+      }
 
-        console.log('touched it');
-    });
+      console.log('touched it');
+  });
 }
 
 
