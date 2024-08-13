@@ -163,7 +163,7 @@ smile.addEventListener('mouseenter', function() {
   document.getElementById('all-socials').style.display = 'flex';
 }); 
 
-smile.addEventListener('touchstart', function() {
+smile.addEventListener('click', function() {
   const allSocials = document.getElementById('all-socials');
 
     if (allSocials.style.display === 'flex') {
@@ -184,7 +184,7 @@ let imageContainers = document.getElementsByClassName('image-container');
 
 // Loop through each element in the HTMLCollection
 for (let i = 0; i < imageContainers.length; i++) {
-    imageContainers[i].addEventListener('touchstart', function() {
+    imageContainers[i].addEventListener('click', function() {
         let overlayText = this.getElementsByClassName('overlay-text')[0];  // Get the overlay-text within this image container
         this.classList.toggle('clicked'); // Toggle the class on the image container
         

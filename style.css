@@ -303,13 +303,22 @@ footer h3 {
   color: var(--pink) !important;
 }
 
-.overlay-link a {
+.overlay-link a,
+p {
   font-size: 24px;
   color: var(--grey);
 }
 
+p {
+  margin-left: 5px;
+}
+
 .overlay-link a:hover {
   color: var(--pink);
+}
+
+.overlay-link {
+  display: flex;
 }
 
 /* HATCHINGS */
@@ -542,9 +551,21 @@ img {
 
   h3,
   .overlay-body,
-  .overlay-link a {
+  .overlay-link a,
+  p {
     font-size: 14px;
     line-height: 14px;
+  }
+
+  .overlay-link {
+    flex-direction: column;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+  }
+
+  .overlay-link a,
+  p {
+    margin:0;
   }
 
   .overlay-Title {
@@ -565,6 +586,10 @@ img {
 
   .fullheight h3 {
     margin-top: 20px;
+  }
+
+  .overlay-Title, .overlay-Date, .overlay-body, .overlay-link, .overlay-group {
+    max-width: 80%;
   }
 
   #smile {
@@ -597,8 +622,8 @@ img {
   }
 
   .image-container {
-    width: 300px;
-    height: 168.75px;
+    width: 350px;
+    height: 196.87px;
     border-width: 3px;
   }
 
@@ -664,5 +689,10 @@ img {
   
   #lines10 {
     transform: translate(80px, -2000px);
+  }
+
+  footer {
+    margin-top: 50px;
+    border-top-width: 3px;
   }
 }
